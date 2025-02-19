@@ -1,30 +1,90 @@
 # reflexion_textworlds
 
-Introduction
-This repository mainly implements the deployment of the model from the Reflexion paper in the TextWorlds environment. We have custom - set 32 kitchen cooking tasks for testing and running the model in the TextWorlds environment.
-Installation of Dependencies
-Before running this project, make sure you have installed all the required dependencies. You can install all the dependencies listed in the requirements.txt file by running the following command:
-bash
+
+# Reflexion Model Deployment for TextWorlds Kitchen Tasks
+
+This repository implements the deployment of the model from the [Reflexion paper](https://arxiv.org/abs/2303.11366) in the TextWorld environment, featuring 32 custom kitchen cooking tasks for testing.
+
+![GitHub](https://img.shields.io/github/license/yourusername/reponame?color=blue)  <!-- Replace with actual badges -->
+
+## Features
+- 32 customized kitchen cooking tasks in TextWorld
+- Reflexion model integration
+- Parallel environment support
+
+## Installation
+
+1. Clone this repository:
+```bash
+git clone https://github.com/yourusername/reponame.git
+cd reponame
+```
+
+2. Install dependencies:
+```bash
 pip install -r requirements.txt
-Running Steps
-After installing the dependencies, you can start the project by executing the main.py script. Here is a running example, and you can adjust the parameters according to your needs:
-bash
+```
+
+## Usage
+
+### Basic Execution
+```bash
 python main.py \
-        --num_trials 3 \
-        --num_envs 1 \
-        --run_name "test" \
-        --model "4o" \
-        --game_path "./32-cooking-task/game_0_1.ulx"
-Parameter Explanation
---num_trials: Number of trials, specifying the total number of trials the model will conduct.
---num_envs: Number of environments, indicating the number of simultaneously running environment instances.
---run_name: Run name, used to identify this run for subsequent recording and analysis.
---model: Model name, specifying the model to be used.
---game_path: Game file path, pointing to a specific game file among the custom 32 kitchen cooking tasks.
-Custom Tasks
-The 32 kitchen cooking tasks in this project are all set by ourselves. These tasks are stored in the 32 - cooking - task directory, and each task corresponds to a .ulx file. You can choose different task files for testing as needed.
-Notes
-Please ensure that all the dependencies have been correctly installed before running the project; otherwise, the program may run incorrectly.
-The running process may consume a certain amount of system resources. Please make sure your computer has sufficient performance.
-Contribution and Feedback
-If you have any suggestions or find problems with this project, welcome to submit feedback through the Issues function on GitHub. Also, you are welcome to contribute to the project by submitting a Pull Request.
+    --num_trials 3 \
+    --num_envs 1 \
+    --run_name "test_run" \
+    --model "4o" \
+    --game_path "./32-cooking-task/game_0_1.ulx"
+```
+
+### Parameters
+| Parameter    | Description                          | Default  |
+|--------------|--------------------------------------|----------|
+| `--num_trials` | Total number of trials to run        | 3        |
+| `--num_envs`   | Number of parallel environments      | 1        |
+| `--run_name`    | Identifier for logging/analysis      | "test"   |
+| `--model`       | Model version to use                 | "4o"     |
+| `--game_path`   | Path to .ulx game file               | Required |
+
+## Custom Tasks
+Our 32 kitchen tasks are located in:
+```
+./32-cooking-task/
+└── game_0_1.ulx
+    game_0_2.ulx
+    ...
+    game_31.ulx
+```
+
+To use different tasks:
+```bash
+--game_path "./32-cooking-task/game_X_Y.ulx"  # Replace X,Y with task numbers
+```
+
+## Important Notes
+⚠️ **Requirements**: Ensure all dependencies are installed before execution  
+⚠️ **Resource Warning**: The environment may require significant CPU/RAM resources  
+⚠️ **Task Validation**: Verify game file paths before execution
+
+## Contributing
+We welcome contributions through:
+- 🐛 [Issue Reporting](https://github.com/yourusername/reponame/issues)
+- 📥 [Pull Requests](https://github.com/yourusername/reponame/pulls)
+
+Please follow standard GitHub workflows when contributing.
+
+## Citation
+If using this implementation, please cite the original Reflexion paper:
+```bibtex
+@article{shinn2023reflexion,
+  title={Reflexion: Language Agents with Verbal Reinforcement Learning},
+  author={Shinn, Noah and Labash, Beck and Gopinath, Ashwin},
+  journal={arXiv preprint arXiv:2303.11366},
+  year={2023}
+}
+```
+
+---
+
+*This project is not affiliated with the original TextWorld or Reflexion authors.*
+```

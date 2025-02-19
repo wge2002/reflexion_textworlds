@@ -82,9 +82,4 @@ If using this implementation, please cite the original Reflexion paper:
   journal={arXiv preprint arXiv:2303.11366},
   year={2023}
 }
-```
 
----
-
-*This project is not affiliated with the original TextWorld or Reflexion authors.*
-```
